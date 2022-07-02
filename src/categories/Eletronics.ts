@@ -5,7 +5,7 @@ export default class Eletronics extends TaxItem {
     super(description, price);
   }
 
-  getTax() {
+  public getTax() {
     return 0.3;
   }
 }

@@ -5,7 +5,7 @@ export default class Cigar extends TaxItem {
     super(description, price);
   }
 
-  getTax() {
+  public getTax() {
     return 0.25;
   }
 }

@@ -1,4 +1,4 @@
-export default class Item {
+export default abstract class Item {
   public description: string;
   public price: number;
 
