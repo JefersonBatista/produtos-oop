@@ -1,14 +1,14 @@
-import { getTaxByCategory } from "./Item";
+import Item from "./Item";
 import TaxItem from "./TaxItem";
 
 export default class Order {
-  private items: TaxItem[];
+  private items: Item[];
 
   constructor() {
     this.items = [];
   }
 
-  public addItem(item: TaxItem) {
+  public addItem(item: Item) {
     this.items.push(item);
   }
 
@@ -20,7 +20,8 @@ export default class Order {
 
   public getTaxes() {
     return this.items
-      .map((item) => item.calculateTax(getTaxByCategory(item.category)))
+      .filter((item) => item instanceof TaxItem)
+      .map((item: TaxItem) => item.calculateTax())
       .reduce((tax, sum) => tax + sum, 0);
   }
 }
